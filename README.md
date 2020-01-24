@@ -1,6 +1,6 @@
 # about-inkohx-me
 
-自分について書いてあるサイト
+Reactの練習
 
 ## Requirement
 
