@@ -1,5 +1,7 @@
 # about-inkohx-me
 
+![CI](https://github.com/InkoHX/about-inkohx-me/workflows/CI/badge.svg?branch=master&event=push)
+
 Reactの練習
 
 ## Requirement
