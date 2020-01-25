@@ -2,6 +2,7 @@
   "name": "about-inkohx-me",
   "version": "1.0.0",
   "description": "About InkoHX",
+  "homepage": "https://about.inkohx.me",
   "repository": "https://github.com/InkoHX/about-inkohx-me.git",
   "author": "InkoHX <inkohx@gmail.com>",
   "license": "MIT",
