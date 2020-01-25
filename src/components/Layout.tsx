@@ -31,7 +31,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
 
         <meta charSet='utf-8' />
         <meta name='description' content={description} />
-        <meta name='viewport' content='width=device-width,initial-scale=1' />
+        <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width' />
         <meta name='format-detection' content='telephone=no,email=no,address=no' />
         <meta name='author' content='InkoHX' />
         <meta name='keywords' content={keyword?.join()} />
