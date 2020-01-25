@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core'
 const index: NextPage = () => {
   return (
     <Layout>
-      <Typography variant="h1">Hello Next.js</Typography>
+      <Typography variant='h1'>Hello Next.js</Typography>
     </Layout>
   )
 }
