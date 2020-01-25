@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "yarn run eslint --ext .tsx,.ts --ignore-path .gitignore ./",
+    "typecheck": "tsc -p ."
   },
   "dependencies": {
     "@material-ui/core": "^4.9.0",
