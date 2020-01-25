@@ -16,6 +16,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   keyword = ['inkohx', 'profile']
 }) => {
   const isDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+  const originUrl = typeof window !== 'undefined' && window.origin
 
   const theme = React.useMemo(() => createMuiTheme({
     palette: {
@@ -43,7 +44,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
         <meta property='og:title' content={title} />
         <meta property='og:site_name' content='About InkoHX' />
         <meta property='og:description' content={description} />
-        <meta property='og:url' content={window.origin} />
+        <meta property='og:url' content={originUrl || 'about.inkohx.me'} />
         <meta property='og:locale' content='ja_JP' />
 
         <meta httpEquiv='Content-Language' content='ja' />
@@ -54,7 +55,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
         <meta name='twitter:site' content='@InkoHX' />
         <meta name='twitter:creator' content='@InkoHX' />
 
-        <link rel='canonical' href={window.origin} />
+        <link rel='canonical' href={originUrl || 'about.inkohx.me'} />
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' />
       </Head>
 
