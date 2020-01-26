@@ -1,13 +1,34 @@
 import * as React from 'react'
 import Head from 'next/head'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import { createMuiTheme, ThemeProvider, AppBar, Toolbar, Typography, Container, CssBaseline } from '@material-ui/core'
+import Twitter from '@material-ui/icons/Twitter'
+import GitHub from '@material-ui/icons/GitHub'
+import { createMuiTheme, ThemeProvider, AppBar, Toolbar, Typography, Container, CssBaseline, Link, IconButton } from '@material-ui/core'
 
 export interface LayoutProps {
   title?: string
   description?: string,
   keyword?: string[]
 }
+
+export interface Social {
+  icon: JSX.Element,
+  url: string,
+  label: string
+}
+
+const socialURLs: Social[] = [
+  {
+    icon: <Twitter />,
+    url: 'https://twitter.com/InkoHX',
+    label: 'twitter'
+  },
+  {
+    icon: <GitHub />,
+    url: 'https://github.com/InkoHX',
+    label: 'github'
+  }
+]
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
@@ -70,9 +91,28 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
 
         <Toolbar />
 
-        <Container>
+        <Container component='main'>
           {children}
         </Container>
+
+        <footer style={{
+          backgroundColor: theme.palette.background.paper,
+          margin: '2% 0'
+        }}
+        >
+          <Typography variant='body1' align='center'>
+            {socialURLs.map((value) => {
+              return (
+                <IconButton href={value.url} key={value.label}>
+                  {value.icon}
+                </IconButton>
+              )
+            })}
+          </Typography>
+          <Typography variant='subtitle2' align='center' component='p'>
+            Powered by <Link href='https://zeit.co'>ZEIT Now</Link>
+          </Typography>
+        </footer>
       </ThemeProvider>
     </>
   )
