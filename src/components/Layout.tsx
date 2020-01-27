@@ -29,12 +29,12 @@ const socialURLs: Social[] = [
   {
     icon: <Twitter />,
     url: 'https://twitter.com/InkoHX',
-    label: 'twitter'
+    label: 'Twitter'
   },
   {
     icon: <GitHub />,
     url: 'https://github.com/InkoHX',
-    label: 'github'
+    label: 'GitHub'
   }
 ]
 
@@ -116,6 +116,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
                   <IconButton
                     href={value.url}
                     key={value.label}
+                    aria-label={value.label}
                     style={{
                       margin: '0px 3px'
                     }}
