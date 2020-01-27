@@ -3,7 +3,15 @@ import Head from 'next/head'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Twitter from '@material-ui/icons/Twitter'
 import GitHub from '@material-ui/icons/GitHub'
-import { createMuiTheme, ThemeProvider, AppBar, Toolbar, Typography, Container, CssBaseline, Link, IconButton } from '@material-ui/core'
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import Container from '@material-ui/core/Container'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Link from '@material-ui/core/Link'
+import IconButton from '@material-ui/core/IconButton'
+import { ThemeProvider } from '@material-ui/core'
 
 export interface LayoutProps {
   title?: string
@@ -97,7 +105,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
 
         <footer style={{
           backgroundColor: theme.palette.background.paper,
-          margin: '2% 0'
+          margin: '3% 0'
         }}
         >
           <Typography variant='body1' align='center'>
