@@ -105,20 +105,29 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
 
         <footer style={{
           backgroundColor: theme.palette.background.paper,
-          margin: '3% 0'
+          marginTop: '3%',
+          padding: '1%'
         }}
         >
-          <Typography variant='body1' align='center'>
-            {socialURLs.map((value) => {
-              return (
-                <IconButton href={value.url} key={value.label}>
-                  {value.icon}
-                </IconButton>
-              )
-            })}
-          </Typography>
-          <Typography variant='subtitle2' align='center' component='p'>
-            Powered by <Link href='https://zeit.co'>ZEIT Now</Link>
+          <Typography align='center' component='div'>
+            <Typography component='div'>
+              {socialURLs.map((value) => {
+                return (
+                  <IconButton
+                    href={value.url}
+                    key={value.label}
+                    style={{
+                      margin: '0px 3px'
+                    }}
+                  >
+                    {value.icon}
+                  </IconButton>
+                )
+              })}
+            </Typography>
+            <Typography variant='h6'>
+              Copyright &copy; {new Date().getFullYear()} InkoHX | Powered by <Link href='https://zeit.co'>ZEIT Now</Link>
+            </Typography>
           </Typography>
         </footer>
       </ThemeProvider>
