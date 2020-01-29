@@ -77,7 +77,7 @@ const Footer: React.FunctionComponent = () => {
         variant='h6'
         component='p'
       >
-        Copyright &copy; {new Date().getFullYear()} InkoHX | Powered by <Link href='https://zeit.co'>ZEIT Now</Link>
+        Copyright &copy; {new Date().getFullYear()} InkoHX All rights reserved. | Powered by <Link href='https://zeit.co'>ZEIT Now</Link>
       </Typography>
     </Typography>
   )
