@@ -1,12 +1,12 @@
 import { NextPage } from 'next'
-import Layout from '@Components/Layout'
+import MainLayout from '@/components/MainLayout'
 import { Typography } from '@material-ui/core'
 
 const index: NextPage = () => {
   return (
-    <Layout>
-      <Typography variant='h1'>Hello Next.js</Typography>
-    </Layout>
+    <MainLayout>
+      <Typography variant='h1'>About InkoHX</Typography>
+    </MainLayout>
   )
 }
 
