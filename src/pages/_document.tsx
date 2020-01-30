@@ -8,7 +8,7 @@ export default class extends Document {
 
   public render () {
     return (
-      <Html lang='en'>
+      <Html lang='ja'>
         <Head />
         <body>
           <Main />
