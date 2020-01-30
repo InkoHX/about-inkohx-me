@@ -67,9 +67,6 @@ const Footer: React.FunctionComponent = () => {
       backgroundColor: theme.palette.background.paper,
       marginTop: '3%',
       padding: '1%'
-    },
-    linkText: {
-      color: theme.palette.info.main
     }
   }))()
 
@@ -86,7 +83,7 @@ const Footer: React.FunctionComponent = () => {
         variant='h6'
         component='p'
       >
-        Copyright &copy; {new Date().getFullYear()} InkoHX All rights reserved. | Powered by <Link className={style.linkText} href='https://zeit.co'>ZEIT Now</Link>
+        Copyright &copy; {new Date().getFullYear()} InkoHX All rights reserved. | Powered by <Link color='textSecondary' href='https://zeit.co'>ZEIT Now</Link>
       </Typography>
     </Typography>
   )
