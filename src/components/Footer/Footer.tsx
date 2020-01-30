@@ -3,11 +3,12 @@ import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import IconButton from '@material-ui/core/IconButton'
 import makeStyles from '@material-ui/core/styles/makeStyles'
+import { createStyles } from '@material-ui/core'
 
 // Button
 import GitHub from '@material-ui/icons/GitHub'
 import Twitter from '@material-ui/icons/Twitter'
-import { createStyles } from '@material-ui/core'
+import Mail from '@material-ui/icons/Mail'
 
 type SocialLink = {
   iconButton: JSX.Element,
@@ -25,6 +26,11 @@ const linkList: Readonly<SocialLink[]> = [
     iconButton: <Twitter />,
     link: 'https://twitter.com/InkoHX',
     label: 'Twitter'
+  },
+  {
+    iconButton: <Mail />,
+    link: 'mailto:inkohx@protonmail.com',
+    label: 'Mail Address'
   }
 ]
 
@@ -61,6 +67,9 @@ const Footer: React.FunctionComponent = () => {
       backgroundColor: theme.palette.background.paper,
       marginTop: '3%',
       padding: '1%'
+    },
+    linkText: {
+      color: theme.palette.info.main
     }
   }))()
 
@@ -77,7 +86,7 @@ const Footer: React.FunctionComponent = () => {
         variant='h6'
         component='p'
       >
-        Copyright &copy; {new Date().getFullYear()} InkoHX All rights reserved. | Powered by <Link href='https://zeit.co'>ZEIT Now</Link>
+        Copyright &copy; {new Date().getFullYear()} InkoHX All rights reserved. | Powered by <Link className={style.linkText} href='https://zeit.co'>ZEIT Now</Link>
       </Typography>
     </Typography>
   )
