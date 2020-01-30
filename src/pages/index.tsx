@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import MainLayout from '@/components/MainLayout'
+import MainLayout from '@Components/MainLayout'
 import { Typography } from '@material-ui/core'
 
 const index: NextPage = () => {
