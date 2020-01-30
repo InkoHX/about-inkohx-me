@@ -78,22 +78,16 @@ const MainLayout: React.FunctionComponent<MainLayoutProps> = ({
 
   return (
     <>
-      <PageHead
-        title={head.title}
-        keyword={head.keyword}
-        description={head.description}
-      />
+      <PageHead {...head} />
 
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <AppBar>
+        <AppBar position='relative'>
           <Toolbar>
             <Typography variant='h6' component='p'>About InkoHX</Typography>
           </Toolbar>
         </AppBar>
-
-        <Toolbar />
 
         <Container component='main'>
           {children}
