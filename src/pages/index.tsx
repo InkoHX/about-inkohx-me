@@ -36,6 +36,7 @@ const MainProfile: React.FunctionComponent = () => {
     >
       <Avatar
         className={style.avatar}
+        title='InkoHX icon'
         alt='InkoHX icon'
         src='/images/index/inkohx-icon.gif'
       />
