@@ -25,12 +25,14 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@Components/*": ["src/components/*"]
+      "@Components/*": ["src/components/*"],
+      "@lib/*": ["src/lib/*"]
     }
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx", "next.config.js"
+    "**/*.tsx",
+    "next.config.js"
   ],
   "exclude": [
     "node_modules"
