@@ -50,8 +50,12 @@ const MainProfile: React.FunctionComponent = () => {
   )
 }
 
-const index: NextPage<IndexProps> = ({
-  playedGames
+type GameCardProps = {
+  res: SteamResponse | null
+}
+
+const GameCards: React.FunctionComponent<GameCardProps> = ({
+  res
 }) => {
   const style = makeStyles({
     cardTitle: {
@@ -60,17 +64,25 @@ const index: NextPage<IndexProps> = ({
   })()
 
   return (
+    <Typography align='center' component='div'>
+      <Typography variant='h6' component='h3' className={style.cardTitle}>最近プレイしたゲーム</Typography>
+      {
+        res !== null
+          ? <GameFeed response={res} />
+          : <Typography variant='h5' component='p'>ゲームを取得できませんでした。</Typography>
+      }
+    </Typography>
+  )
+}
+
+const index: NextPage<IndexProps> = ({
+  playedGames
+}) => {
+  return (
     <MainLayout>
       <MainProfile />
 
-      <Typography align='center' component='div'>
-        <Typography variant='h6' component='h3' className={style.cardTitle}>最近プレイしたゲーム</Typography>
-        {
-          playedGames !== null
-            ? <GameFeed response={playedGames} />
-            : <Typography variant='h5' component='p'>ゲームを取得できませんでした。</Typography>
-        }
-      </Typography>
+      <GameCards res={playedGames} />
 
     </MainLayout>
   )
