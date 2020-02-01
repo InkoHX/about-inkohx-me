@@ -2,7 +2,7 @@ import React from 'react'
 import { NextPage } from 'next'
 import MainLayout from '@Components/MainLayout'
 import Typography from '@material-ui/core/Typography'
-import makeStyle from '@material-ui/core/styles/makeStyles'
+import makeStyles from '@material-ui/core/styles/makeStyles'
 import Avatar from '@material-ui/core/Avatar'
 import { createStyles } from '@material-ui/core'
 import GameFeed from '@/components/GameFeed'
@@ -13,7 +13,7 @@ type IndexProps = {
 }
 
 const MainProfile: React.FunctionComponent = () => {
-  const style = makeStyle(theme =>
+  const style = makeStyles(theme =>
     createStyles({
       root: {
         marginTop: '3%',
@@ -53,8 +53,8 @@ const MainProfile: React.FunctionComponent = () => {
 const index: NextPage<IndexProps> = ({
   playedGames
 }) => {
-  const style = makeStyle({
-    title: {
+  const style = makeStyles({
+    cardTitle: {
       marginBottom: '2%'
     }
   })()
@@ -64,11 +64,11 @@ const index: NextPage<IndexProps> = ({
       <MainProfile />
 
       <Typography align='center' component='div'>
-        <Typography variant='h6' component='h2' className={style.title}>最近プレイしたゲーム</Typography>
+        <Typography variant='h6' component='h3' className={style.cardTitle}>最近プレイしたゲーム</Typography>
         {
           playedGames !== null
             ? <GameFeed response={playedGames} />
-            : <Typography variant='h3' component='p'>ゲームを取得できませんでした。</Typography>
+            : <Typography variant='h5' component='p'>ゲームを取得できませんでした。</Typography>
         }
       </Typography>
 
