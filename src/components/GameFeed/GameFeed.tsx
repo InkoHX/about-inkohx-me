@@ -56,7 +56,7 @@ const GameFeed: React.FunctionComponent<GameFeedProps> = ({
                 <CardContent>
                   <Typography
                     gutterBottom
-                    variant='h4'
+                    variant='h5'
                     component='h3'
                   >
                     {value.name}
