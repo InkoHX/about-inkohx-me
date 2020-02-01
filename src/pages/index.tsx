@@ -65,7 +65,7 @@ const GameCards: React.FunctionComponent<GameCardProps> = ({
 
   return (
     <Typography align='center' component='div'>
-      <Typography variant='h6' component='h3' className={style.cardTitle}>最近プレイしたゲーム</Typography>
+      <Typography variant='h6' component='h2' className={style.cardTitle}>最近プレイしたゲーム</Typography>
       {
         res !== null
           ? <GameFeed response={res} />

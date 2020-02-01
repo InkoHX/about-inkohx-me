@@ -46,7 +46,7 @@ const GameFeed: React.FunctionComponent<GameFeedProps> = ({
                   />
                 </CardActionArea>
                 <CardContent>
-                  <Typography variant='h4' component='h2'>{value.name}</Typography>
+                  <Typography variant='h4' component='h3'>{value.name}</Typography>
                   <Typography align='left' variant='subtitle1' component='p'>
                     過去二週間: {towWeeks}<br />
                     合計: {forever}
