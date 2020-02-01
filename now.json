@@ -1,0 +1,12 @@
+{
+  "build": {
+    "env": {
+      "STEAM_API_KEY": "@steam-api-key",
+      "STEAM_USER_ID64": "@steam-user-id64"
+    }
+  },
+  "env": {
+    "STEAM_API_KEY": "@steam-api-key",
+    "STEAM_USER_ID64": "@steam-user-id64"
+  }
+}
