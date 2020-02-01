@@ -6,6 +6,7 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
+import makeStyles from '@material-ui/core/styles/makeStyles'
 
 import { Duration } from '@icholy/duration'
 
@@ -16,10 +17,17 @@ type GameFeedProps = {
 const GameFeed: React.FunctionComponent<GameFeedProps> = ({
   response
 }) => {
+  const style = makeStyles({
+    card: {
+      width: 470,
+      height: 300
+    }
+  })()
+
   const data = response.response.games
 
   return (
-    <Gird container spacing={3}>
+    <Gird container spacing={3} alignItems='center' justify='center'>
       {
         data.map((value) => {
           if (!value.img_icon_url) return
@@ -34,7 +42,7 @@ const GameFeed: React.FunctionComponent<GameFeedProps> = ({
 
           return (
             <Gird item key={value.appid}>
-              <Card>
+              <Card className={style.card}>
                 <CardActionArea href={gameUrl}>
                   <CardMedia
                     component='img'
@@ -46,7 +54,13 @@ const GameFeed: React.FunctionComponent<GameFeedProps> = ({
                   />
                 </CardActionArea>
                 <CardContent>
-                  <Typography variant='h4' component='h3'>{value.name}</Typography>
+                  <Typography
+                    gutterBottom
+                    variant='h4'
+                    component='h3'
+                  >
+                    {value.name}
+                  </Typography>
                   <Typography align='left' variant='subtitle1' component='p'>
                     過去二週間: {towWeeks}<br />
                     合計: {forever}

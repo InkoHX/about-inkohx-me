@@ -23,7 +23,7 @@ export type SteamResponse = {
 const token = process.env.STEAM_API_KEY
 const userId = process.env.STEAM_USER_ID64
 
-const GetRecentlyPlayedGames = async () => {
+const getRecentlyPlayedGames = async () => {
   if (!token) throw new Error('"STEAM_API_KEY" is not set.')
   if (!userId) throw new Error('"STEAM_USER_ID64" is not set.')
 
@@ -36,4 +36,4 @@ const GetRecentlyPlayedGames = async () => {
   return data
 }
 
-export default GetRecentlyPlayedGames
+export default getRecentlyPlayedGames

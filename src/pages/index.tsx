@@ -5,8 +5,10 @@ import Typography from '@material-ui/core/Typography'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import Avatar from '@material-ui/core/Avatar'
 import { createStyles } from '@material-ui/core'
+
+import getRecentlyPlayedGames, { SteamResponse } from '@/lib/steam/getRecentlyPlayedGames'
 import GameFeed from '@/components/GameFeed'
-import GetRecentlyPlayedGames, { SteamResponse } from '@/lib/steam/getRecentlyPlayedGames'
+import PageHead from '@/components/PageHead'
 
 type IndexProps = {
   playedGames: SteamResponse | null
@@ -16,14 +18,16 @@ const MainProfile: React.FunctionComponent = () => {
   const style = makeStyles(theme =>
     createStyles({
       root: {
-        marginTop: '3%',
-        marginBottom: '3%'
+        paddingTop: theme.spacing(3),
+        paddingBottom: theme.spacing(3),
+        marginBottom: theme.spacing(3),
+        backgroundColor: theme.palette.background.paper
       },
       avatar: {
         width: theme.spacing(20),
         height: theme.spacing(20),
         margin: '0 auto',
-        marginBottom: '3%'
+        marginBottom: theme.spacing(3)
       }
     })
   )()
@@ -58,15 +62,17 @@ type GameCardProps = {
 const GameCards: React.FunctionComponent<GameCardProps> = ({
   res
 }) => {
-  const style = makeStyles({
-    cardTitle: {
-      marginBottom: '2%'
-    }
-  })()
+  const style = makeStyles(theme =>
+    createStyles({
+      title: {
+        marginBottom: theme.spacing(3)
+      }
+    })
+  )()
 
   return (
     <Typography align='center' component='div'>
-      <Typography variant='h6' component='h2' className={style.cardTitle}>最近プレイしたゲーム</Typography>
+      <Typography variant='h6' component='h2' className={style.title}>最近プレイしたゲーム</Typography>
       {
         res !== null
           ? <GameFeed response={res} />
@@ -80,18 +86,21 @@ const index: NextPage<IndexProps> = ({
   playedGames
 }) => {
   return (
-    <MainLayout>
-      <MainProfile />
+    <>
+      <PageHead />
+      <MainLayout>
+        <MainProfile />
 
-      <GameCards res={playedGames} />
+        <GameCards res={playedGames} />
 
-    </MainLayout>
+      </MainLayout>
+    </>
   )
 }
 
 index.getInitialProps = async () => {
   try {
-    const recentlyPlayedGames = await GetRecentlyPlayedGames()
+    const recentlyPlayedGames = await getRecentlyPlayedGames()
 
     return {
       playedGames: recentlyPlayedGames
