@@ -8,9 +8,9 @@ type HeadProps = {
 }
 
 const PageHead: React.FunctionComponent<HeadProps> = ({
-  title = 'About InkoHX',
-  description = 'ただの学生デベロッパーについてのプロフィールサイトみたいなやつ',
-  keyword = ['InkoHX', 'Profile']
+  title = 'About InkoHX | InkoHXについて',
+  description = 'ただの学生デベロッパーについてのプロフィールサイトみたいなやつ、今のところ最近プレイしたゲームが閲覧できる。',
+  keyword = ['InkoHX', 'Profile', 'プロフィール', 'デベロッパー', 'ゲーム']
 }) => {
   const originUrl = typeof window !== 'undefined' && window.origin
 
