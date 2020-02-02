@@ -33,6 +33,7 @@ const PageHead: React.FunctionComponent<HeadProps> = ({
       <meta property='og:title' content={title} />
       <meta property='og:site_name' content='About InkoHX' />
       <meta property='og:description' content={description} />
+      <meta property='og:image' content='https://about.inkohx.me/images/og-image.png' />
       <meta property='og:url' content={originUrl || 'about.inkohx.me'} />
       <meta property='og:locale' content='ja_JP' />
 
