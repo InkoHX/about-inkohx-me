@@ -76,7 +76,7 @@ const GameCards: React.FunctionComponent<GameCardProps> = ({
       {
         res !== null
           ? <GameFeed response={res} />
-          : <Typography variant='h5' component='p'>ゲームを取得できませんでした。</Typography>
+          : <Typography variant='h5' color='error' component='p'>情報を取得中にエラーが発生しました。</Typography>
       }
     </Typography>
   )
