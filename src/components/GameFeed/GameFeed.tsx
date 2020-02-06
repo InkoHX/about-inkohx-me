@@ -31,7 +31,8 @@ const GameFeed: React.FunctionComponent<GameFeedProps> = ({
     }
   })()
 
-  const data = response.response.games.filter(value => {
+  const data = response.response.games.filter((value, index) => {
+    if (index > 2) return
     if (!value.img_icon_url) return
     if (!value.img_logo_url) return
     if (!value.name) return

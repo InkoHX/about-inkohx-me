@@ -9,9 +9,13 @@ import { createStyles } from '@material-ui/core'
 import getRecentlyPlayedGames, { SteamResponse } from '@/lib/steam/getRecentlyPlayedGames'
 import GameFeed from '@/components/GameFeed'
 import PageHead from '@/components/PageHead'
+import getRepos from '@/lib/github'
+import { GitHubRepository } from '@/lib/github/getRepos'
+import RepoFeed from '@/components/RepoFeed'
 
 type IndexProps = {
-  playedGames: SteamResponse | null
+  playedGames: SteamResponse | null,
+  repos: GitHubRepository[] | null
 }
 
 const MainProfile: React.FunctionComponent = () => {
@@ -82,8 +86,37 @@ const GameCards: React.FunctionComponent<GameCardProps> = ({
   )
 }
 
+type RepoCardProps = {
+  res: GitHubRepository[] | null
+}
+
+const RepoCards: React.FunctionComponent<RepoCardProps> = ({
+  res
+}) => {
+  const style = makeStyles(theme =>
+    createStyles({
+      title: {
+        marginTop: theme.spacing(3),
+        marginBottom: theme.spacing(3)
+      }
+    })
+  )()
+
+  return (
+    <Typography align='center' component='div'>
+      <Typography variant='h6' component='h2' className={style.title}>最近プッシュしたリポジトリ</Typography>
+      {
+        res !== null
+          ? <RepoFeed response={res} />
+          : <Typography variant='h5' color='error' component='p'>情報を取得中にエラーが発生しました。</Typography>
+      }
+    </Typography>
+  )
+}
+
 const index: NextPage<IndexProps> = ({
-  playedGames
+  playedGames,
+  repos
 }) => {
   return (
     <>
@@ -92,6 +125,7 @@ const index: NextPage<IndexProps> = ({
         <MainProfile />
 
         <GameCards res={playedGames} />
+        <RepoCards res={repos} />
 
       </MainLayout>
     </>
@@ -101,13 +135,16 @@ const index: NextPage<IndexProps> = ({
 index.getInitialProps = async () => {
   try {
     const recentlyPlayedGames = await getRecentlyPlayedGames()
+    const repos = await getRepos()
 
     return {
-      playedGames: recentlyPlayedGames
+      playedGames: recentlyPlayedGames,
+      repos: repos
     }
   } catch (err) {
     return {
-      playedGames: null
+      playedGames: null,
+      repos: null
     }
   }
 }
